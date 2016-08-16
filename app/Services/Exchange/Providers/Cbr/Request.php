@@ -12,7 +12,7 @@ namespace App\Services\Exchange\Providers\Cbr;
 use App\Services\Exchange\Exceptions\BadStatusException;
 use GuzzleHttp\Client;
 
-class CbrRequest
+class Request
 {
     private $url = 'http://www.cbr.ru/scripts/XML_daily_eng.asp';
 
@@ -31,6 +31,7 @@ class CbrRequest
 
     /**
      * @return string
+     * @throws BadStatusException
      */
     public function fetch()
     {

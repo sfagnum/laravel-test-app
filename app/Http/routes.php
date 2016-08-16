@@ -12,12 +12,8 @@
 */
 
 Route::get('/', function () {
-    $cbr = new \App\Services\Exchange\Providers\CbrProvider(
-        new \App\Services\Exchange\Providers\Cbr\CbrRequest(),
-        new \App\Services\Exchange\Providers\Cbr\Parser(new \Sabre\Xml\Service())
-        );
+    $cbr = new \App\Services\Exchange\Providers\Yahoo\Provider();
 
-    echo"<pre>";print_r($cbr->getRateValues('EUR')); echo"</pre>";die;
-    //$cbr->getRateValues();
+    var_dump($cbr->getRateValues());
     return view('welcome');
 });

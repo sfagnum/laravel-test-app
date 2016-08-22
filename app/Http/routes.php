@@ -11,9 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    $cbr = new \App\Services\Exchange\Providers\Yahoo\Provider();
-
-    var_dump($cbr->getRateValues());
-    return view('welcome');
-});
+Route::get('/', 'MainController@show');
+Route::get('/currencies', 'MainController@currencies');

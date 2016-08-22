@@ -1,8 +1,23 @@
 /vendor
 /node_modules
-/public/storage
-Homestead.yaml
-Homestead.json
+### Laravel template
+/bootstrap/compiled.php
+/resources/components/
+/public/css/
+/public/js/
+.env.*.php
+.env.php
 .env
-.idea
+*.iml
 .idea/
+Icon?
+.DS_Store
+.svn
+nbproject
+Thumbs.db
+*.bak
+*.sass-cache
+*.komodoproject
+*.sublime-project
+vagrant/.vagrant
+!.gitignore

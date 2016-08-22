@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "sabre/xml": "^1.4",
         "guzzlehttp/guzzle": "^6.2",
-        "myclabs/php-enum": "^1.4"
+        "myclabs/php-enum": "^1.4",
+        "barryvdh/laravel-debugbar": "^2.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

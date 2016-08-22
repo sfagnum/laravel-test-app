@@ -15,17 +15,6 @@ use App\Services\Exchange\Providers\BaseProvider;
 
 class Provider extends BaseProvider implements ExchangeRateProvider
 {
-    private $request;
-
-    /**
-     * CbrProvider constructor.
-     * @param Request $request
-     */
-    public function __construct(Request $request)
-    {
-        $this->request = $request;
-    }
-
     /**
      * @param string|array $currencies
      * @return array
@@ -68,7 +57,7 @@ class Provider extends BaseProvider implements ExchangeRateProvider
             $value = (float)str_replace(',', '.', $valut->Value);
 
             if (array_key_exists($currency, $flipped)) {
-                $result[] = [$currency => $value];
+                $result[$currency] = $value;
             }
         }
 

@@ -48,14 +48,22 @@ class Provider extends BaseProvider implements ExchangeRateProvider
         $body = json_decode($responseBody, true);
         $rates = $body['query']['results']['rate'];
 
-        foreach ($rates as $rate) {
-            $currency = explode('/', $rate['Name'])[0];
+        if (isset($rates['id'])) {
+            $currency = explode('/', $rates['Name'])[0];
 
-            if (!array_key_exists($currency, $flipped)) {
-                continue;
+            if (array_key_exists($currency, $flipped)) {
+                $result[$currency] = (float)$rates['Rate'];
             }
+        } else {
+            foreach ($rates as $rate) {
+                $currency = explode('/', $rate['Name'])[0];
 
-            $result[] = [$currency => (float)$rate['Rate']];
+                if (!array_key_exists($currency, $flipped)) {
+                    continue;
+                }
+
+                $result[$currency] = (float)$rate['Rate'];
+            }
         }
 
         return $result;
